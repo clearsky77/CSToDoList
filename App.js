@@ -50,5 +50,10 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: "white",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 30,
+    marginTop: 10,
+    fontSize: 15,
   }
 });
