@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import {
   StyleSheet,
   Text,
+  TextInput,
   View,
   TouchableOpacity,
   TouchableHighlight,
@@ -25,6 +26,9 @@ export default function App() {
           <Text style={{...styles.btnText, color: !working ? "white": theme.grey}}>여행</Text>
         </TouchableOpacity>
       </View>
+      <View>
+        <TextInput placeholder={working ? "할 일을 추가하세요." : "어디로 떠나고 싶으세요?"} style={styles.input} />
+      </View>
     </View>
   );
 }
@@ -44,4 +48,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "600",
   },
+  input: {
+    backgroundColor: "white",
+  }
 });
