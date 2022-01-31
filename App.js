@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { StatusBar } from 'expo-status-bar';
 import {
   StyleSheet,
@@ -10,17 +11,19 @@ import {
 import { theme } from "./colors";
 
 export default function App() {
+  const [working, setWorking] = useState(true);
+  const travel = () => setWorking(false);
+  const work = () => setWorking(true);
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
       <View style={styles.header}>
-        <TouchableOpacity>
-          <Text style={styles.btnText}>작업</Text>
+        <TouchableOpacity onPress={work}>
+          <Text style={{...styles.btnText, color: working ? "white": theme.grey}}>작업</Text>
         </TouchableOpacity>
-        <TouchableWithoutFeedback
-          onPress={() => console.log("pressed")}>
-          <Text style={styles.btnText}>여행</Text>
-        </TouchableWithoutFeedback>
+        <TouchableOpacity onPress={travel}>
+          <Text style={{...styles.btnText, color: !working ? "white": theme.grey}}>여행</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -40,6 +43,5 @@ const styles = StyleSheet.create({
   btnText: {
     fontSize: 30,
     fontWeight: "600",
-    color: theme.grey,
   },
 });
