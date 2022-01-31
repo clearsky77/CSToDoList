@@ -13,9 +13,15 @@ import { theme } from "./colors";
 
 export default function App() {
   const [working, setWorking] = useState(true);
+  const [text,setText] = useState("");
+
   const travel = () => setWorking(false);
   const work = () => setWorking(true);
-  const onChangeText = (event) => console.log(event);
+  const onChangeText = (payload) => setText(payload);
+  const addToDo = () => {
+    alert(text);
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -29,7 +35,9 @@ export default function App() {
       </View>
       <View>
         <TextInput
+          onSubmitEditing={addToDo}
           onChangeText={onChangeText}
+          value={text}
           placeholder={working ? "할 일을 추가하세요." : "어디로 떠나고 싶으세요?"}
           style={styles.input} />
       </View>
