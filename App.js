@@ -15,19 +15,23 @@ export default function App() {
   const [working, setWorking] = useState(true);
   const travel = () => setWorking(false);
   const work = () => setWorking(true);
+  const onChangeText = (event) => console.log(event);
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
       <View style={styles.header}>
         <TouchableOpacity onPress={work}>
-          <Text style={{...styles.btnText, color: working ? "white": theme.grey}}>작업</Text>
+          <Text style={{ ...styles.btnText, color: working ? "white" : theme.grey }}>작업</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={travel}>
-          <Text style={{...styles.btnText, color: !working ? "white": theme.grey}}>여행</Text>
+          <Text style={{ ...styles.btnText, color: !working ? "white" : theme.grey }}>여행</Text>
         </TouchableOpacity>
       </View>
       <View>
-        <TextInput placeholder={working ? "할 일을 추가하세요." : "어디로 떠나고 싶으세요?"} style={styles.input} />
+        <TextInput
+          onChangeText={onChangeText}
+          placeholder={working ? "할 일을 추가하세요." : "어디로 떠나고 싶으세요?"}
+          style={styles.input} />
       </View>
     </View>
   );
