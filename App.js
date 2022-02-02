@@ -19,7 +19,10 @@ export default function App() {
   const work = () => setWorking(true);
   const onChangeText = (payload) => setText(payload);
   const addToDo = () => {
-    alert(text);
+    if(text==""){ // 만약 edt내용이 비어있다면
+      return // 그냥 반환
+    }
+    setText("");
   }
 
   return (
