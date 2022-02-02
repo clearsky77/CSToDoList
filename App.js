@@ -13,7 +13,8 @@ import { theme } from "./colors";
 
 export default function App() {
   const [working, setWorking] = useState(true);
-  const [text,setText] = useState("");
+  const [text, setText] = useState("");
+  const [toDos, setToDos] = useState({});
 
   const travel = () => setWorking(false);
   const work = () => setWorking(true);
@@ -22,8 +23,13 @@ export default function App() {
     if(text==""){ // 만약 edt내용이 비어있다면
       return // 그냥 반환
     }
+    const newToDos = Object.assign({}, toDos, {[Date.now()]:{text, work:working}});
+    // toDos와 뒤에 오는 object를 붙인다.
+    // key는 현재 시간. Date.now()
+    setToDos(newToDos);
     setText("");
-  }
+  };
+  console.log(toDos);
 
   return (
     <View style={styles.container}>
