@@ -37,6 +37,7 @@ export default function App() {
         <TextInput
           onSubmitEditing={addToDo}
           onChangeText={onChangeText}
+          returnKeyType="done"
           value={text}
           placeholder={working ? "할 일을 추가하세요." : "어디로 떠나고 싶으세요?"}
           style={styles.input} />
